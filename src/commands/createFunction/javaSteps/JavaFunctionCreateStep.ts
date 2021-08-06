@@ -40,6 +40,7 @@ export class JavaFunctionCreateStep extends FunctionCreateStepBase<IFunctionWiza
         args.set("className", functionName.replace('-', '_'));
         const content: string = substituteParametersInTemplate(template, args);
         const path: string = getJavaFunctionFilePath(context.projectPath, packageName, functionName);
+        await fse.ensureFile(path)
         await fse.writeFile(path, content)
         return getJavaFunctionFilePath(context.projectPath, packageName, functionName);
     }
