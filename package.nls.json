@@ -36,6 +36,7 @@
     "azureFunctions.executeFunction": "Execute Function Now...",
     "azureFunctions.initProjectForVSCode": "Initialize Project for Use with VS Code...",
     "azureFunctions.installOrUpdateFuncCoreTools": "Install or Update Azure Functions Core Tools",
+    "azureFunctions.javaBuildTool": "Build tool for Java Functions project",
     "azureFunctions.loadMore": "Load More",
     "azureFunctions.openInPortal": "Open in Portal",
     "azureFunctions.pickProcess": "Pick Process",
