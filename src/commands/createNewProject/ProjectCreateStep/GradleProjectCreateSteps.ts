@@ -47,8 +47,12 @@ export class GradleProjectCreateStep extends ScriptProjectCreateStep {
     }
 
     async getLatestGradlePluginVersion(context: IJavaProjectWizardContext): Promise<string> {
-        const templateVersion: string | undefined = await javaUtils.getLatestArtifactVersionFromMetaData(context, metaDataUrl);
-        return templateVersion ? templateVersion : backupGradlePluginVersion;
+        try {
+            const templateVersion: string | undefined = await javaUtils.getLatestArtifactVersionFromMetaData(context, metaDataUrl);
+            return templateVersion ? templateVersion : backupGradlePluginVersion;
+        } catch (error) {
+            return backupGradlePluginVersion;
+        }
     }
 
     getSettingsGradleContent(context: IJavaProjectWizardContext): any {
