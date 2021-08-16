@@ -32,7 +32,7 @@ export class GradleProjectCreateStep extends ScriptProjectCreateStep {
     }
 
     public async executeCore(context: IJavaProjectWizardContext, progress: Progress<{ message?: string | undefined; increment?: number | undefined }>): Promise<void> {
-        super.executeCore(context, progress);
+        await super.executeCore(context, progress);
 
         const settingsGradlePath: string = path.join(context.projectPath, settingsGradleFileName);
         if (await confirmOverwriteFile(context, settingsGradlePath)) {
@@ -55,7 +55,7 @@ export class GradleProjectCreateStep extends ScriptProjectCreateStep {
         }
     }
 
-    getSettingsGradleContent(context: IJavaProjectWizardContext): any {
+    getSettingsGradleContent(context: IJavaProjectWizardContext): string {
         return `rootProject.name = "${context.javaArtifactId}"`;
     }
 
